@@ -1091,6 +1091,306 @@ const economics: LearningPath = {
   ],
 };
 
+// ---------------------------------------------------------------------------
+// History path: Age of Exploration — Columbus's Voyages
+// ---------------------------------------------------------------------------
+
+const columbusVoyages: LearningPath = {
+  slug: "columbus-voyages",
+  subject: "history",
+  title: "Columbus & the Age of Exploration",
+  provider: "OpenLearn Editors",
+  providerUrl: "https://en.wikipedia.org/wiki/Christopher_Columbus",
+  license: "CC BY",
+  exploreUrl: "/explore/columbus",
+  description:
+    "Follow Christopher Columbus across four Atlantic voyages — from the courts of Spain " +
+    "to the shores of the Caribbean — and understand how his journeys reshaped the world.",
+  estimatedHours: 6,
+  lessons: [
+    {
+      id: "background",
+      title: "The World Before 1492",
+      summary: "Europe, trade routes, and why Spain funded a westward gamble.",
+      body:
+        "By the late 1400s, European powers were desperate for a reliable sea route to **Asia**. " +
+        "The Ottoman Empire controlled the overland Silk Road, making spices and silks expensive " +
+        "and dangerous to obtain. Portugal had been inching down the African coast looking for " +
+        "an eastern route; Columbus proposed something bolder: sail **west** to reach the East.\n\n" +
+        "Columbus's plan rested on a miscalculation — he believed the Earth's circumference was " +
+        "roughly a third of its actual size, putting Asia within sailing range. Most educated " +
+        "Europeans knew the Earth was round; the debate was about its *size*. The Spanish monarchs " +
+        "**Isabella I** and **Ferdinand II**, freshly victorious in the Reconquista, agreed to " +
+        "fund the voyage in the **Capitulations of Santa Fe** (April 1492), promising Columbus " +
+        "a 10 % share of wealth and the title *Admiral of the Ocean Sea*.",
+      resources: [
+        {
+          title: "Christopher Columbus — Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Christopher_Columbus",
+          kind: "reading",
+          license: "CC BY-SA",
+          attribution: "Wikipedia contributors",
+        },
+        {
+          title: "Age of Discovery — Khan Academy",
+          url: "https://www.khanacademy.org/humanities/ap-world-history/period-3/apwh-new-world/a/columbus-causes-and-context",
+          kind: "reading",
+          license: "Linked",
+          attribution: "Khan Academy",
+        },
+      ],
+      quiz: [
+        {
+          id: "bg-q1",
+          prompt: "Why did European powers seek a sea route to Asia in the 1400s?",
+          choices: [
+            "Asia had closed its borders to all foreigners",
+            "The Ottoman Empire controlled overland routes, making trade expensive",
+            "Europeans wanted to convert Asia to Christianity",
+            "Asia had no overland roads",
+          ],
+          answer: 1,
+          explanation:
+            "Ottoman control of Silk Road routes made Eastern goods costly and unreliable, " +
+            "spurring Europe's search for sea alternatives.",
+        },
+        {
+          id: "bg-q2",
+          prompt: "Columbus's biggest geographical error was…",
+          choices: [
+            "Thinking the Earth was flat",
+            "Believing the Earth was much smaller than it actually is",
+            "Not knowing the Americas existed",
+            "Overestimating the size of Asia",
+          ],
+          answer: 1,
+          explanation:
+            "Columbus underestimated Earth's circumference by ~60%, which is why he thought " +
+            "Asia was reachable — had the Americas not been in the way, his crew would have perished.",
+        },
+        {
+          id: "bg-q3",
+          prompt: "What title did Spain promise Columbus in exchange for his voyage?",
+          choices: [
+            "Viceroy of the Indies",
+            "Admiral of the Ocean Sea",
+            "Duke of Castile",
+            "Governor of Hispaniola",
+          ],
+          answer: 1,
+          explanation:
+            "The Capitulations of Santa Fe (1492) granted Columbus the title Admiral of the Ocean Sea " +
+            "plus 10% of wealth from newly discovered lands.",
+        },
+      ],
+    },
+    {
+      id: "first-voyage",
+      title: "First Voyage — Landfall (1492)",
+      summary: "Three ships, 70 days at sea, and an island Columbus called San Salvador.",
+      body:
+        "Columbus departed **Palos de la Frontera** on 3 August 1492 with three ships: the " +
+        "**Niña**, **Pinta**, and **Santa María**. After resupplying in the Canary Islands, " +
+        "the fleet headed due west into uncharted Atlantic waters on 6 September.\n\n" +
+        "Thirty-three days later — on **12 October 1492** — a sailor on the Pinta spotted " +
+        "land. Columbus landed on an island he named **San Salvador** (likely present-day " +
+        "Watlings Island in the Bahamas). He encountered the **Taíno** people, whom he called " +
+        "*los Indios*, convinced he had reached islands off Asia.\n\n" +
+        "He then sailed south to **Cuba** (which he believed was mainland China) and east to " +
+        "**Hispaniola** (modern Haiti/Dominican Republic), where the Santa María ran aground " +
+        "on Christmas Day. Columbus left 39 men at a small fort called **La Navidad** and " +
+        "returned to Spain in March 1493 to a hero's welcome.",
+      resources: [
+        {
+          title: "Columbus's First Voyage — Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Columbus%27s_first_voyage",
+          kind: "reading",
+          license: "CC BY-SA",
+          attribution: "Wikipedia contributors",
+        },
+        {
+          title: "Columbus's Journal (translated excerpts)",
+          url: "https://en.wikisource.org/wiki/Journal_of_the_First_Voyage_of_Columbus",
+          kind: "reading",
+          license: "Public Domain",
+          attribution: "Christopher Columbus (trans. Clements R. Markham)",
+        },
+      ],
+      quiz: [
+        {
+          id: "v1-q1",
+          prompt: "What were the names of Columbus's three ships on the first voyage?",
+          choices: [
+            "Nina, Pinta, Santa María",
+            "Victoria, Trinidad, San Antonio",
+            "Esperanza, Libertad, Independencia",
+            "Gallega, Marigalante, India",
+          ],
+          answer: 0,
+          explanation:
+            "The Niña, Pinta, and Santa María are among the most famous ships in history — " +
+            "the Santa María ran aground on Hispaniola on Christmas Day 1492.",
+        },
+        {
+          id: "v1-q2",
+          prompt: "What happened to the Santa María?",
+          choices: [
+            "It was captured by pirates",
+            "It returned to Spain first",
+            "It ran aground on Hispaniola on Christmas Day",
+            "It sank in a storm near the Azores",
+          ],
+          answer: 2,
+          explanation:
+            "The Santa María ran aground off Hispaniola on 25 December 1492. Its timbers were used to build Fort La Navidad.",
+        },
+        {
+          id: "v1-q3",
+          prompt: "Columbus called the native people he encountered 'los Indios' because…",
+          choices: [
+            "They called themselves Indians",
+            "He believed he had reached islands near Asia (the Indies)",
+            "India was written on his map at that location",
+            "The Spanish word for native is 'indio'",
+          ],
+          answer: 1,
+          explanation:
+            "Columbus was convinced he had reached islands off the Asian coast (the East Indies), hence 'Indians'.",
+        },
+      ],
+    },
+    {
+      id: "second-voyage",
+      title: "Second Voyage — Colony & Conflict (1493–1496)",
+      summary: "17 ships, 1,200 colonists, and the dark turn toward exploitation.",
+      body:
+        "The second voyage was far larger: **17 ships** and roughly **1,200 men**, including " +
+        "soldiers, priests, and colonists. Columbus explored more of the Caribbean — the " +
+        "**Lesser Antilles**, **Puerto Rico**, and Jamaica — and returned to Hispaniola.\n\n" +
+        "He found La Navidad destroyed and all 39 men dead, likely killed after they attacked " +
+        "Taíno villages. Columbus founded a new settlement, **La Isabela**, and began demanding " +
+        "gold tributes from the Taíno. When they couldn't meet quotas, he enslaved many and " +
+        "shipped hundreds to Spain — inaugurating the **transatlantic slave trade**.\n\n" +
+        "Back in Spain, Columbus's reputation began to suffer. Colonists complained of his " +
+        "harsh governance. The promised riches had not materialized. Still, a **third voyage** " +
+        "was approved.",
+      resources: [
+        {
+          title: "Columbus's Second Voyage — Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Columbus%27s_second_voyage",
+          kind: "reading",
+          license: "CC BY-SA",
+          attribution: "Wikipedia contributors",
+        },
+      ],
+      quiz: [
+        {
+          id: "v2-q1",
+          prompt: "What did Columbus find when he returned to La Navidad on the second voyage?",
+          choices: [
+            "A thriving colony of 39 men",
+            "The men had sailed home to Spain",
+            "La Navidad destroyed and all 39 men dead",
+            "The men had established a gold mine",
+          ],
+          answer: 2,
+          explanation:
+            "La Navidad was burned to the ground; the 39 men left behind had been killed, " +
+            "likely after attacking Taíno communities.",
+        },
+        {
+          id: "v2-q2",
+          prompt: "Which practice did Columbus introduce during the second voyage that had lasting consequences?",
+          choices: [
+            "Tobacco farming",
+            "Transatlantic slave trading",
+            "Sugar cultivation",
+            "Cattle ranching",
+          ],
+          answer: 1,
+          explanation:
+            "Columbus shipped enslaved Taíno people to Spain in 1495, initiating the transatlantic slave trade.",
+        },
+      ],
+    },
+    {
+      id: "later-voyages",
+      title: "Third & Fourth Voyages — Mainland & Downfall (1498–1504)",
+      summary: "Columbus reaches South America, is arrested, and dies still believing he found Asia.",
+      body:
+        "On his **third voyage** (1498), Columbus finally reached the **South American mainland** — " +
+        "the coast of present-day Venezuela — and recognized the volume of freshwater flowing into " +
+        "the sea meant he had found a large landmass. He called it a *'New World'* in his journal, " +
+        "though he still believed it was near Asia.\n\n" +
+        "His governance of Hispaniola had become so brutal that the Spanish Crown sent a royal " +
+        "commissioner, **Francisco de Bobadilla**, who arrested Columbus in 1500 and shipped him " +
+        "back to Spain in chains. He was stripped of his governorship, though his titles and a " +
+        "portion of revenues were eventually restored.\n\n" +
+        "His **fourth and final voyage** (1502–1504) took him along the coast of Central America " +
+        "searching in vain for a strait to the Indian Ocean. Stranded in Jamaica for a year with " +
+        "a worm-eaten fleet, he was finally rescued. Columbus died in **Valladolid on 20 May 1506**, " +
+        "still insisting he had reached Asia — never knowing he had changed the world.",
+      resources: [
+        {
+          title: "Columbus's Later Voyages — Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Columbus%27s_third_voyage",
+          kind: "reading",
+          license: "CC BY-SA",
+          attribution: "Wikipedia contributors",
+        },
+        {
+          title: "Columbian Exchange — Khan Academy",
+          url: "https://www.khanacademy.org/humanities/ap-world-history/period-3/apwh-new-world/a/the-columbian-exchange",
+          kind: "reading",
+          license: "Linked",
+          attribution: "Khan Academy",
+        },
+      ],
+      quiz: [
+        {
+          id: "v34-q1",
+          prompt: "What did Columbus reach on his third voyage that he hadn't touched before?",
+          choices: [
+            "North America",
+            "The South American mainland",
+            "The Pacific Ocean",
+            "The coast of Africa",
+          ],
+          answer: 1,
+          explanation:
+            "In 1498 Columbus landed near present-day Venezuela — the first European contact with the South American mainland.",
+        },
+        {
+          id: "v34-q2",
+          prompt: "Why was Columbus arrested and sent back to Spain in chains in 1500?",
+          choices: [
+            "He had disobeyed orders to return home",
+            "He was accused of stealing gold from the Crown",
+            "His brutal governance of Hispaniola prompted a royal investigation",
+            "He had declared himself king of the Indies",
+          ],
+          answer: 2,
+          explanation:
+            "Royal commissioner Bobadilla found evidence of Columbus's tyrannical rule; he was arrested and stripped of his governorship.",
+        },
+        {
+          id: "v34-q3",
+          prompt: "Columbus died believing he had…",
+          choices: [
+            "Discovered a continent unknown to Europeans",
+            "Reached islands off the coast of Asia",
+            "Found the source of the Nile",
+            "Circumnavigated the globe",
+          ],
+          answer: 1,
+          explanation:
+            "Columbus never accepted that he had found a new continent; he died in 1506 convinced he had reached the vicinity of Asia.",
+        },
+      ],
+    },
+  ],
+};
+
 export const subjects: Subject[] = [
   {
     slug: "computer-science",
@@ -1132,7 +1432,7 @@ export const subjects: Subject[] = [
     name: "History",
     emoji: "🏛️",
     blurb: "The forces and stories that shaped the modern world.",
-    paths: [],
+    paths: [columbusVoyages],
   },
 ];
 

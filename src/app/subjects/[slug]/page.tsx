@@ -66,6 +66,14 @@ export default async function SubjectPage({
             >
               Start the path →
             </Link>
+            {path.exploreUrl && (
+              <Link
+                href={path.exploreUrl}
+                className="mt-5 ml-3 inline-block rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-brand transition-colors"
+              >
+                🌍 Interactive globe
+              </Link>
+            )}
           </div>
         ))}
       </div>

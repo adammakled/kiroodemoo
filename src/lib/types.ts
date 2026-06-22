@@ -49,6 +49,8 @@ export interface LearningPath {
   /** Rough hours to complete, for expectation-setting. */
   estimatedHours: number;
   lessons: Lesson[];
+  /** Optional URL for an interactive exploration page. */
+  exploreUrl?: string;
 }
 
 export interface Subject {

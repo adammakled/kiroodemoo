@@ -4,6 +4,7 @@ import { getLesson, getSubject, subjects } from "@/lib/curriculum";
 import { Prose } from "@/components/Prose";
 import { Quiz } from "@/components/Quiz";
 import { Tutor } from "@/components/Tutor";
+import { ColumbusGlobe } from "@/components/ColumbusGlobe";
 
 export function generateStaticParams() {
   return subjects.flatMap((s) =>
@@ -129,10 +130,13 @@ export default async function LessonPage({
           </nav>
         </article>
 
-        {/* tutor sidebar */}
-        <aside className="lg:sticky lg:top-20">
+        {/* tutor / explorer sidebar */}
+        <aside className="lg:sticky lg:top-20 space-y-4">
+          {subjectSlug === "history" && path.slug === "columbus-voyages" && (
+            <ColumbusGlobe activeLessonId={lessonId} />
+          )}
           <Tutor lessonTitle={lesson.title} lessonBody={lesson.body} />
-          <p className="mt-2 text-xs text-muted px-1">
+          <p className="text-xs text-muted px-1">
             The tutor is grounded in this lesson&apos;s material to keep answers accurate.
           </p>
         </aside>
