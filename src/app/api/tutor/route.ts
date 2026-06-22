@@ -1,4 +1,5 @@
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
+import { anthropic } from "@ai-sdk/anthropic";
 
 export const maxDuration = 30;
 
@@ -8,10 +9,10 @@ interface TutorBody {
   lessonBody?: string;
 }
 
-// Model is resolved through the Vercel AI Gateway via a plain "provider/model"
-// string — provider-swappable, no provider SDK needed. Configure a key with
-// AI_GATEWAY_API_KEY (or deploy on Vercel, where OIDC handles it).
-const MODEL = process.env.TUTOR_MODEL ?? "anthropic/claude-haiku-4-5";
+// Direct Anthropic provider — reads ANTHROPIC_API_KEY from the environment.
+// (Swap to a Vercel AI Gateway "provider/model" string here if you'd rather
+// route through the gateway.)
+const MODEL = process.env.TUTOR_MODEL ?? "claude-haiku-4-5";
 
 function systemPrompt(title?: string, body?: string): string {
   return [
@@ -30,14 +31,14 @@ function systemPrompt(title?: string, body?: string): string {
 }
 
 export async function POST(req: Request) {
-  // Fail gracefully if no gateway credential is configured, so local dev without
-  // a key shows a helpful message instead of a 500.
-  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
+  // Fail gracefully if no credential is configured, so local dev without a key
+  // shows a helpful message instead of a 500.
+  if (!process.env.ANTHROPIC_API_KEY) {
     return Response.json(
       {
         error:
-          "AI tutor isn't configured. Set AI_GATEWAY_API_KEY in .env.local (get one at " +
-          "vercel.com/ai-gateway) to enable the Socratic tutor.",
+          "AI tutor isn't configured. Set ANTHROPIC_API_KEY in .env.local to enable " +
+          "the Socratic tutor.",
       },
       { status: 503 },
     );
@@ -51,7 +52,7 @@ export async function POST(req: Request) {
   }
 
   const result = streamText({
-    model: MODEL,
+    model: anthropic(MODEL),
     system: systemPrompt(payload.lessonTitle, payload.lessonBody),
     messages: await convertToModelMessages(payload.messages ?? []),
   });
