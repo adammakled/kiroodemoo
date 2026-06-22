@@ -1,4 +1,5 @@
 import { streamText } from "ai";
+import { anthropic } from "@ai-sdk/anthropic";
 
 export const maxDuration = 30;
 
@@ -11,7 +12,8 @@ interface AnalysisBody {
   language: string;
 }
 
-const MODEL = process.env.TUTOR_MODEL ?? "anthropic/claude-haiku-4-5";
+// Direct Anthropic provider — reuses the same ANTHROPIC_API_KEY as the tutor.
+const MODEL = process.env.TUTOR_MODEL ?? "claude-haiku-4-5";
 
 function systemPrompt(): string {
   return [
@@ -56,11 +58,11 @@ function userPrompt(body: AnalysisBody): string {
 }
 
 export async function POST(req: Request) {
-  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     return Response.json(
       {
         error:
-          "AI coach isn't configured. Set AI_GATEWAY_API_KEY in .env.local to enable real-time analysis.",
+          "AI coach isn't configured. Set ANTHROPIC_API_KEY in .env.local to enable real-time analysis.",
       },
       { status: 503 },
     );
@@ -78,7 +80,7 @@ export async function POST(req: Request) {
   }
 
   const result = streamText({
-    model: MODEL,
+    model: anthropic(MODEL),
     system: systemPrompt(),
     messages: [{ role: "user", content: userPrompt(body) }],
   });
