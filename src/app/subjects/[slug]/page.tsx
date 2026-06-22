@@ -68,6 +68,66 @@ export default async function SubjectPage({
             </Link>
           </div>
         ))}
+
+        {/* Coding challenge paths */}
+        {subject.codingPaths?.map((cp) => (
+          <div key={cp.slug} className="rounded-2xl border border-border bg-card p-6">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
+              <span className="rounded-full bg-accent/10 text-accent px-2.5 py-1 font-medium">
+                ♟ AI-Powered
+              </span>
+              <span className="rounded-full bg-foreground/5 px-2.5 py-1">
+                ~{cp.estimatedHours}h · {cp.problems.length} problems
+              </span>
+            </div>
+            <h2 className="mt-3 text-xl font-semibold">{cp.title}</h2>
+            <p className="mt-1 text-muted">{cp.description}</p>
+
+            <ol className="mt-5 space-y-2">
+              {cp.problems.slice(0, 5).map((problem, i) => (
+                <li key={problem.id}>
+                  <Link
+                    href={`/challenges/${problem.id}`}
+                    className="group flex items-center gap-3 rounded-xl border border-border px-4 py-3 hover:border-brand transition-colors"
+                  >
+                    <span className="grid place-items-center w-7 h-7 shrink-0 rounded-full bg-brand/10 text-brand text-sm font-medium">
+                      {i + 1}
+                    </span>
+                    <span className="flex-1">
+                      <span className="font-medium group-hover:text-brand transition-colors">
+                        {problem.title}
+                      </span>
+                      <span className="block text-sm text-muted">{problem.summary}</span>
+                    </span>
+                    <span
+                      className={`text-xs font-medium rounded-full px-2.5 py-1 shrink-0 ${
+                        problem.difficulty === "Easy"
+                          ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                          : problem.difficulty === "Medium"
+                            ? "bg-amber-500/10 text-amber-700 dark:text-amber-300"
+                            : "bg-red-500/10 text-red-700 dark:text-red-300"
+                      }`}
+                    >
+                      {problem.difficulty}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+              {cp.problems.length > 5 && (
+                <li className="text-sm text-muted px-4 py-2">
+                  + {cp.problems.length - 5} more problems
+                </li>
+              )}
+            </ol>
+
+            <Link
+              href="/challenges"
+              className="mt-5 inline-block rounded-full bg-brand text-white px-5 py-2.5 text-sm font-medium hover:bg-brand-ink transition-colors"
+            >
+              View all challenges →
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

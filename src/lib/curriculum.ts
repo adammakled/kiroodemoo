@@ -1,4 +1,5 @@
 import type { Subject, LearningPath } from "./types";
+import { codingPath } from "./challenges";
 
 // ---------------------------------------------------------------------------
 // Flagship path: Computer Science via CS50 (CC BY-NC-SA — legal to host/remix
@@ -1098,6 +1099,7 @@ export const subjects: Subject[] = [
     emoji: "💻",
     blurb: "Programming, algorithms, how computers actually work.",
     paths: [cs50],
+    codingPaths: [codingPath],
   },
   {
     slug: "mathematics",

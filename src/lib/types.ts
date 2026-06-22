@@ -1,5 +1,38 @@
 // Core domain types for OpenLearn.
 
+// ---------------------------------------------------------------------------
+// Coding challenge types (LeetCode-style path)
+// ---------------------------------------------------------------------------
+
+export type Difficulty = "Easy" | "Medium" | "Hard";
+
+export type MoveQuality = "Optimal" | "Good" | "Inaccurate" | "Blunder";
+
+export interface CodingProblem {
+  id: string;
+  title: string;
+  summary: string;
+  /** Full problem description in markdown-ish prose. */
+  description: string;
+  difficulty: Difficulty;
+  /** The language for the editor (e.g. "python", "javascript"). */
+  language: string;
+  /** Starter code shown in the editor. */
+  starterCode: string;
+  /** The canonical optimal solution — sent to the AI, never shown to the user directly. */
+  optimalSolution: string;
+  /** Key insight about the optimal approach shown after the session. */
+  optimalExplanation: string;
+  /** Time complexity of the optimal solution e.g. "O(n)". */
+  optimalComplexity: string;
+  /** Tags like ["array", "two pointers"]. */
+  tags: string[];
+}
+
+// ---------------------------------------------------------------------------
+// Original types
+// ---------------------------------------------------------------------------
+
 export type License =
   | "CC BY"
   | "CC BY-SA"
@@ -56,6 +89,17 @@ export interface Subject {
   name: string;
   emoji: string;
   blurb: string;
-  /** Available paths. Empty = subject is "coming soon / contribute". */
+  /** Available learning paths. Empty = subject is "coming soon / contribute". */
   paths: LearningPath[];
+  /** Available coding challenge paths. */
+  codingPaths?: CodingPath[];
+}
+
+export interface CodingPath {
+  slug: string;
+  subject: string;
+  title: string;
+  description: string;
+  estimatedHours: number;
+  problems: CodingProblem[];
 }
